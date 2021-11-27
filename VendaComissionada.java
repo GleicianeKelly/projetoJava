@@ -1,10 +1,11 @@
 package ProjetoAldo;
 
-import java.util.Date;
 
-public class VendaComissionada extends ContratoComissionado{
+
+public class VendaComissionada{
 
 	
+	static int contador = 0;
 	
 	private int id;
 	private int mes;
@@ -13,18 +14,18 @@ public class VendaComissionada extends ContratoComissionado{
 	private ContratoComissionado contrComissionado;
 	
 	
-	
-	public VendaComissionada( Date dataInicio, Date dataEncerramento, Colaborador colaborador, boolean ativo,
-			float percComissao, float ajudaCusto, int id2, int mes, int ano, float valor,
-			ContratoComissionado contrComissionado) {
-		super( dataInicio, dataEncerramento, colaborador, ativo, percComissao, ajudaCusto);
-		id = id2;
+
+
+	public VendaComissionada(int mes, int ano, float valor, ContratoComissionado contrComissionado) {
+		
+		this.id += contador++;
 		this.mes = mes;
 		this.ano = ano;
 		this.valor = valor;
 		this.contrComissionado = contrComissionado;
 	}
-
+	
+	
 
 
 	public int getId() {

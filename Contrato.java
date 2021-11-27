@@ -3,23 +3,23 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 
-
-
 public abstract class Contrato {
 
-	static int contador = 0;
+	static int contador = 1;
+	
 	private int id;
 	private Date dataInicio;
 	private Date dataEncerramento;
 	private Colaborador colaborador;
 	private boolean ativo;
+	private float ultimoVencimento;
 	
 	
 	
-	
-	public Contrato( Date dataInicio, Date dataEncerramento, Colaborador colaborador, boolean ativo) {
+	public Contrato( Date dataInicio, Date dataEncerramento, Colaborador colaborador) {
 		
-		this.id = contador++;
+		//Gerador de Id automático
+		this.id += contador++;
 		this.dataInicio = dataInicio;
 		this.dataEncerramento = dataEncerramento;
 		this.colaborador = colaborador;
@@ -60,6 +60,7 @@ public abstract class Contrato {
 	
 	
 	public void encerrarContrato() {
+		this.setAtivo(false);
 		
 	}
 	

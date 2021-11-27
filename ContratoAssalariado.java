@@ -12,15 +12,15 @@ public class ContratoAssalariado extends Contrato {
 	
 	
 	
-	public ContratoAssalariado(Date dataInicio, Date dataEncerramento, Colaborador colaborador, boolean ativo,
+	public ContratoAssalariado(Date dataInicio, Date dataEncerramento, Colaborador colaborador, 
 			float salarioMensal, float percInsalubridade, float percPericulosidade) {
-		super(dataInicio, dataEncerramento, colaborador, ativo);
+		super(dataInicio, dataEncerramento, colaborador);
 		this.salarioMensal = salarioMensal;
-		this.percInsalubridade = percInsalubridade;
-		this.percPericulosidade = percPericulosidade;
+		this.percInsalubridade = percInsalubridade / 100 ;
+		this.percPericulosidade = percPericulosidade / 100;
 	}
 
-
+	
 
 	public float getSalarioMensal() {
 		return salarioMensal;
@@ -58,36 +58,50 @@ public class ContratoAssalariado extends Contrato {
 
 
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "\n**Contrato assalariado** "  +
 				"\n Data de início : " + this.getDataInicio() +
 				"\n Data de encerramento:  " + this.getDataEncerramento() + 
 				"\n Situação do contrato: " + this.isAtivo();
 	
-	}
+	}*/
 	
 
 
-
+	//Método que calcula o vencimento do colaborador
 	public float calcVencimento() {
-		return
+		
+		float resultado1 = this.salarioMensal * this.percInsalubridade;
+		float resultado2 = this.salarioMensal * this.percPericulosidade;
+	
+		
+		return this.salarioMensal + resultado1 + resultado2;
 	}
 	
 	
 	
 	
+	public float calcularSeguro(){
+		
+		float resultado = 0;
+		
+		float calculo = (this.calcVencimento() * 2) /100;
+		
+		if(calculo <= 25){
+			resultado = 25;
+		}
+		else if(calculo >= 150){
+			resultado = 150;
+		}
+		else {
+			resultado = calculo;
+		}
+		
+		return resultado;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		}
+
 	
 	
 }

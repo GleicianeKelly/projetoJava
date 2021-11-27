@@ -12,13 +12,15 @@ public class ContratoComissionado extends Contrato {
 	
 	
 	
-	public ContratoComissionado( Date dataInicio, Date dataEncerramento, Colaborador colaborador, boolean ativo,
+	public ContratoComissionado( Date dataInicio, Date dataEncerramento, Colaborador colaborador, 
 			float percComissao, float ajudaCusto) {
-		super (dataInicio, dataEncerramento, colaborador, ativo);
+		super (dataInicio, dataEncerramento, colaborador);
 		this.percComissao = percComissao;
 		this.ajudaCusto = ajudaCusto;
 	}
 
+	
+	
 
 
 
@@ -48,35 +50,33 @@ public class ContratoComissionado extends Contrato {
 	}
 	
 	
-	
+	//Método que calcula o vencimento do colaborador
 	public float calcVencimento(float vlFaturamento) {
 		
-		return
+		return (vlFaturamento * this.percComissao) / 100 + this.ajudaCusto;
 	}
 
 
 
-
-	@Override
-	public String toString() {
-		String situacao = "\n**Contrato comissionado** "  +
-				"\n Data de início : " + this.getDataInicio() +
-				"\n Data de encerramento:  " + this.getDataEncerramento() + 
-				"\n Situação do contrato: " + this.isAtivo() +
-				"\n Matrícula colaborador: "
+	public float calcularSeguro(float vlFaturamento){
+		
+		float resultado = 0;
+		
+		float calculo = this.getAjudaCusto() * 0.005f + (this.ajudaCusto - (this.calcVencimento(vlFaturamento) * 0.01f));
+		
+		
 			
-		
-		
-		
-		
+		if(calculo <= 25){
+			resultado = 25;
+			
+		}
+		else {
+			resultado = calculo;
+		}
+
+		return resultado;
+	
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-}
+}	

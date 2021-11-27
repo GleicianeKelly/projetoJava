@@ -1,4 +1,5 @@
 package ProjetoAldo;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Colaborador{
@@ -14,7 +15,7 @@ public class Colaborador{
 	
 	
 	
-	public Colaborador(String matricula, String cpf, String nome, Date dataNascimento, boolean situacao) {
+	public Colaborador(String matricula, String cpf, String nome, Date dataNascimento) {
 		super();
 		this.matricula = matricula;
 		this.cpf = cpf;
@@ -76,14 +77,21 @@ public class Colaborador{
 		this.setSituacao(false);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+	@Override
+	public String toString() {
+		
+		SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
+		
+		return "\nColaborador " + this.getNome() + 
+				"\nMatrícula " + this.getMatricula() + 
+				"\nCPF " + this.getCpf() +
+				"\nData de nascimento: " + formatarData.format(this.getDataNascimento()) + 
+				"\nSituação " + this.isSituacao();
+	}
+		
 	
 	
 	

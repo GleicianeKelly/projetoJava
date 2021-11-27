@@ -11,15 +11,13 @@ public class ContratoHorista extends Contrato {
 	
 	
 	
-	public ContratoHorista(Date dataInicio, Date dataEncerramento, Colaborador colaborador, boolean ativo,
+	public ContratoHorista(Date dataInicio, Date dataEncerramento, Colaborador colaborador, 
 			int horasMes, float valorHora) {
-		super(dataInicio, dataEncerramento, colaborador, ativo);
+		super(dataInicio, dataEncerramento, colaborador);
 		this.horasMes = horasMes;
 		this.valorHora = valorHora;
 	}
-
-
-
+	
 
 
 	public int getHorasMes() {
@@ -50,24 +48,39 @@ public class ContratoHorista extends Contrato {
 
 
 
-
+	//Método que calcula o vencimento do colaborador
 	public float calcVencimento() {
-		return
+		return this.valorHora * this.horasMes;
 	}
 	
 	
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "\n**Contrato horista** "  +
 				"\n Data de início : " + this.getDataInicio() +
 				"\n Data de encerramento:  " + this.getDataEncerramento() + 
 				"\n Situação do contrato: " + this.isAtivo();
 	
+	}*/
+	
+	public void calcularSeguro() {
+		
+		float resultado = 0;
+		
+		
+	
+		if(this.calcVencimento() < 5000f){
+			resultado = (this.calcVencimento() * 2) / 100;
+			}
+			else if(this.calcVencimento() > 5000f){
+			resultado = (this.calcVencimento() * 2.5f) / 100;
+			}
+	
+		}
+			
 	}
 	
 	
 	
-	
-	
-}
+
