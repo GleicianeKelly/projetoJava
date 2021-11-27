@@ -690,7 +690,12 @@ public class ProjetoAldoPOO {
 	
 		
 			
-			
+		/*Método que verifica se um contrato existe ou já foi encerrado,
+		 * verifica também a data de encerramento que não pode ser após a data 
+		 * atual. Encerra o contrato, desativa o colaborador e coloca no contrato a data de encerramento
+		 */
+		
+		
 		public static void encerrarContrato() throws ParseException {
 				
 			System.out.println(" **Encerrar contrato** ");
@@ -756,7 +761,7 @@ public class ProjetoAldoPOO {
 		}
 			
 			
-
+		//Método que lista todos os colaboradores ativos
 		public static void listarColaboradoresAtivos() {
 				
 			System.out.println(" **Listar colaboradores ativos** ");
@@ -798,7 +803,16 @@ public class ProjetoAldoPOO {
 				
 		}
 			
-			
+		/*Método que consulta o contrato do colaborador pela 
+		 * matrícula dele. 
+		 * Digita a matrícula e chama o método que pela matrícula encontra
+		 * o colaborador. Encontrando o colaborador, mostra os dados dele.
+		 * Para mostrar os dados do contrato dele, tem que chamar o método que 
+		 * varre o contrato e ao passar a matrícula por parâmetro, acha o contrato. 
+		 * Após isso chama o método que verifica a classe onde o objeto foi instanciado
+		 * 	
+		 */
+		
 		public static void consultarContratoColaborador() {
 			System.out.println(" **Consultar colaborador** ");
 				
@@ -855,7 +869,7 @@ public class ProjetoAldoPOO {
 			}
 		}
 			
-			
+		//Verifica se as vendas é de contrato comissionado e instancia o objeto	
 		public static void lancarVendaComissionada () {
 			
 			System.out.println(" **Lançar vendas comissionadas** ");
@@ -917,7 +931,7 @@ public class ProjetoAldoPOO {
 			
 		}
 		
-			
+		//Manutenção que emite a folha de pagamento com os dados do contrato	
 		public static void emitirFolhaPagamento() {
 
 			System.out.println(" **Emitir folha de pagamento** ");
